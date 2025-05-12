@@ -1,12 +1,12 @@
 # MF-UFNO-code
-**该仓库用于储存MF-UFNO的相关训练、验证及测试代码**
+**This repository stores the relevant training, validation, and testing code for MF-UFNO.**
 
-1. train_radar_zhkdp.py 用于训练及验证MF-UFNO模型，在训练过程中使用早停策略，将验证集损失几个epoch不下降的模型保存为最优模型
-2. early_stopping 存储所定义的早停类，用于防止过拟合 
-3. UFNO_1F3U.py 存储定义的MF-UFNO模型，模型包含一层的FNO层和3层的UNet-CBAM层
-4. loss_MSE.py 存储一些定义的损失函数，本研究使用的是自定义损失的均方根误差:
+1. `train_radar_zhkdp.py` : This script is utilized for training and validating the MF-UFNO model. It incorporates an early stopping strategy during the training process, wherein the model that exhibits no improvement in validation loss for a specified number of epochs is saved as the optimal model.
+2. `early_stopping.py` : This module stores the defined early stopping class, which is employed to prevent model overfitting.
+3. `UFNO_1F3U.py` : This script contains the definition of the MF-UFNO model architecture. The model comprises one Fourier Neural Operator (FNO) layer and three UNet-Convolutional Block Attention Module (CBAM) layers
+4. `loss_MSE.py` : This module stores definitions for various loss functions. The present study utilizes a customized weights Root Mean Squared Error (WRMSE) as the loss function.
 $$WRMSE = \sqrt{\frac1n \sum_{i=1}^m \omega_i(y_i - \hat y)^2}$$
-5. mydataset_zhzdr.py 存储dataset类，用于训练过程
-6. mydataset_lat_zh.py 同上，但用于测试过程
-7. test.py 用于对保存的模型测试并显示图片
-8. score.py 用于存储一些对模型性能检验的指标函数
+5. `mydataset_zhzdr.py`: This script defines the dataset class used during the training process.
+6. `mydataset_lat_zh.py` : Similar to `mydataset_zhzdr.py`, this script defines the dataset class but is utilized for the testing process.
+7. `test.py` : This script is used for testing the saved model and displaying the resulting prediction images.
+8. `score.py` : This module contains various metric functions for evaluating the model's performance.
